@@ -22,17 +22,10 @@ RUN FIREFOX_SETUP=firefox-setup.tar.bz2 && \
     ln -s /opt/firefox/firefox /usr/bin/firefox && \
     rm $FIREFOX_SETUP
 
-
-RUN pip3 install selenium
-# RUN pip3 install pyvirtualdisplay
+RUN pip3 install selenium pytest
 
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 ENV PYTHONUNBUFFERED=1
 
-ENV APP_HOME .
-WORKDIR /$APP_HOME
-
-COPY . $APP_HOME/
-
-CMD ["python3", "main.py"]
+COPY /src /src

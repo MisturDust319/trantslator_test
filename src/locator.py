@@ -26,10 +26,13 @@ class MainPageLocators(object):
 
 class HeaderLocators(object):
     # header
+    HEADER_ELEMENT = (By.TAG_NAME, 'header')
     TITLE = (By.XPATH, "//header/h1")
     ICON = (By.XPATH, "//header/*[name()='svg']")
 
 class FooterLocators(object):
+    FOOTER_ELEMENT = (By.TAG_NAME, 'footer')
+
     # internal links
     HR_1 = (By.XPATH, "//footer/hr[1]")
     PAGES_HEADER = (By.XPATH, "//div[@class='footer-link'][1]/h3")

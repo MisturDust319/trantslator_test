@@ -11,7 +11,7 @@ class BasePageElement(object):
         
         # wait until we can find the element described by locator
         WebDriverWait(driver, 100).until(
-            lambda driver: driver.find_element_by_name(self.locator))
+            lambda driver: driver.find_element(self.locator))
 
         # now that the element is available, clear it and search for value
         driver.find_element_by_name(self.locator).clear()
@@ -24,5 +24,5 @@ class BasePageElement(object):
         
         # once the element is located
         # return the element's value
-        element = driver.find_element_by_name(self.locator)
+        element = driver.find_element(self.locator)
         return element.get_attributes_value("value")
