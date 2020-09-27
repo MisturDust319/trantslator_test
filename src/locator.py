@@ -50,10 +50,3 @@ class FooterLocators(object):
     INSTAGRAM_SVG = (By.XPATH, "//div[@class='footer-link'][2]/ul/li[2]/a/*[name()='svg']")
     WEBSITE_LINK = (By.XPATH, "//div[@class='footer-link'][2]/ul/li[3]/a")
     WEBSITE_SVG = (By.XPATH, "//div[@class='footer-link'][2]/ul/li[3]/a/*[name()='svg']")
-
-
-class SearchResultsPageLocators(object):
-    """
-    if you have to define locators for the search results, define them here
-    """
-    pass
