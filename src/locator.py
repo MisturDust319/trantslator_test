@@ -35,7 +35,7 @@ class FooterLocators(object):
 
     # internal links
     HR_1 = (By.XPATH, "//footer/hr[1]")
-    PAGES_HEADER = (By.XPATH, "//div[@class='footer-link'][1]/h3")
+    PAGES_HEADING = (By.XPATH, "//div[@class='footer-link'][1]/h3")
     HOME_LINK = (By.XPATH, "//div[@class='footer-link'][1]/ul/li[1]/a")
     HELP_LINK = (By.XPATH, "//div[@class='footer-link'][1]/ul/li[2]/a")
     ABOUT_LINK = (By.XPATH, "//div[@class='footer-link'][1]/ul/li[3]/a")

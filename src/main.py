@@ -46,3 +46,24 @@ def test_home_page(set_up_page):
     assert header.check_for_header() is True, "Header not found"
     assert header.check_header_title() is True, "Header title incorrect"
     assert header.check_for_icon() is True, "Icon not found"
+
+    # test the body
+
+    # test the footer
+    assert footer.check_for_hr1() is True, "hr 1 not found in footer"
+    assert footer.get_pages_heading() == "PAGES", "PAGES heading in footer wrong"
+    assert footer.get_home_link() == "https://www.trantslator.com/", "Home link in footer wrong"
+    assert footer.get_help_link() == "https://www.trantslator.com/help/", "Help link in footer wrong"
+    assert footer.get_about_link() == "https://www.trantslator.com/about/", "About link in footer wrong"
+    
+    assert footer.check_for_hr2() is True, "hr 2 not found in footer"
+    
+    assert footer.get_external_links_header() == "LINKS", "LINKS heading in footer wrong"
+    assert footer.get_twitter_link() == "https://twitter.com/hermetikosmedia", "Twitter link in footer wrong"
+    assert footer.check_for_twitter_svg() is True, "Twitter link SVG not found"
+    assert footer.get_instagram_link() == "https://instagram.com/stan_the_freelancer?igshid=a2r2ytdwa2ys", "Instagram link in footer wrong"
+    assert footer.check_for_instagram_svg() is True, "Instagram link SVG not found"
+    assert footer.get_website_link() == "https://www.hermetikos.com/", "Website link in footer wrong"
+    assert footer.check_for_website_svg() is True, "Website link SVG not found"
+    
+

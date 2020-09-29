@@ -31,4 +31,41 @@ class HeaderTemplate(Template):
         return self.check_for_element(HeaderLocators.ICON)
 
 class FooterTemplate(Template):
-    pass
+    def check_for_hr1(self):
+        return self.check_for_element(FooterLocators.HR_1)
+    
+    def get_pages_heading(self):
+        return self.driver.find_element(*FooterLocators.PAGES_HEADING).text
+
+    def get_home_link(self):
+        return self.driver.find_element(*FooterLocators.HOME_LINK).get_attribute('href')
+    
+    def get_help_link(self):
+        return self.driver.find_element(*FooterLocators.HELP_LINK).get_attribute('href')
+    
+    def get_about_link(self):
+        return self.driver.find_element(*FooterLocators.ABOUT_LINK).get_attribute('href')
+    
+    def check_for_hr2(self):
+        return self.check_for_element(FooterLocators.HR_2)
+
+    def get_external_links_header(self):
+        return self.driver.find_element(*FooterLocators.EXTERNAL_LINKS_HEADER).text
+
+    def get_twitter_link(self):
+        return self.driver.find_element(*FooterLocators.TWITTER_LINK).get_attribute('href')
+    
+    def check_for_twitter_svg(self):
+        return self.check_for_element(FooterLocators.TWITTER_SVG)
+
+    def get_instagram_link(self):
+        return self.driver.find_element(*FooterLocators.INSTAGRAM_LINK).get_attribute('href')
+    
+    def check_for_instagram_svg(self):
+        return self.check_for_element(FooterLocators.INSTAGRAM_SVG)
+    
+    def get_website_link(self):
+        return self.driver.find_element(*FooterLocators.WEBSITE_LINK).get_attribute('href')
+    
+    def check_for_website_svg(self):
+        return self.check_for_element(FooterLocators.WEBSITE_SVG)
