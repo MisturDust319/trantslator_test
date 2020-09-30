@@ -48,6 +48,13 @@ def test_home_page(set_up_page):
     assert header.check_for_icon() is True, "Icon not found"
 
     # test the body
+    # check that default translation settings are working
+    page.fill_input_field("the quick brown fox jumped over the lazy dog")
+    page.click_translate_button()
+    # get the output field
+    output_field = page.get_output_field()
+    # check the output field's value
+    assert output_field.text == "THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG"
 
     # test the footer
     assert footer.check_for_hr1() is True, "hr 1 not found in footer"

@@ -14,9 +14,16 @@ class BasePage(object):
         Get the page title
         """
         return self.driver.title
+    
+    def check_for_element(self, locator):
+        try:
+            self.driver.find_element(*locator)
+        except NoSuchElementException:
+            return False
+        return True
 
 class MainPage(BasePage):
-    def click_advanced_options(self):
+    def toggle_advanced_options(self):
         """
         Use this to toggle the advanced options
         """
@@ -25,11 +32,33 @@ class MainPage(BasePage):
         # click it
         button.click()
     
-    def cycle_spacing_options(self):
-        pass
+    def choose_monospace_setting(self):
+        """
+        Set the spacing to the monospace setting
+        """
+        option = self.driver.find_element(*MainPageLocators.MONOSPACE_SETTING)
+        option.click()
 
-    def cycle_antey_options(self):
-        pass
+    def choose_doublespace_setting(self):
+        """
+        Set the spacing to the doublespace setting
+        """
+        option = self.driver.find_element(*MainPageLocators.DOUBLESPACE_SETTING)
+        option.click()
+    
+    def choose_antey_no_setting(self):
+        """
+        Set the antey to the 'no' setting
+        """
+        option = self.driver.find_element(*MainPageLocators.ANTEY_OPTION_NO)
+        option.click()
+    
+    def choose_antey_yes_setting(self):
+        """
+        Set the antey to the 'yes' setting
+        """
+        option = self.driver.find_element(*MainPageLocators.ANTEY_OPTION_YES)
+        option.click()
 
     def click_translate_button(self):
         """
@@ -48,3 +77,15 @@ class MainPage(BasePage):
         button = self.driver.find_element(*MainPageLocators.COPY_BUTTON)
         # click it
         button.click()
+    
+    def fill_input_field(self, text):
+        # get the element
+        input_field = self.driver.find_element(*MainPageLocators.INPUT_FIELD)
+        
+        # clear and fill the input
+        input_field.clear()
+        input_field.send_keys(text)
+
+    def get_output_field(self):
+        output_field = self.driver.find_element(*MainPageLocators.OUTPUT_FIELD)       
+        return output_field

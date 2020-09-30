@@ -17,8 +17,13 @@ class MainPageLocators(object):
     COPY_BUTTON = (By.XPATH, "//outbut[@class='input']/button")
 
     # dropdowns
-    SPACING_DROPDOWN = (By.ID, 'spacing between words')
-    ANTEY_DROPDOWN = (By.ID, 'make it more ant-ey')
+    # SPACING_DROPDOWN = (By.ID, 'spacing between words')
+    MONOSPACE_SETTING = (By.XPATH, "//select[@id='spacing between words']/option[1]")
+    DOUBLESPACE_SETTING = (By.XPATH, "//select[@id='spacing between words']/option[2]")
+
+    # ANTEY_DROPDOWN = (By.ID, 'make it more ant-ey')
+    ANTEY_OPTION_NO = (By.XPATH, "//select[@id='make it more ant-ey']/option[1]")
+    ANTEY_OPTION_YES = (By.XPATH, "//select[@id='make it more ant-ey']/option[2]")
 
     # text elements
     SPACING_LABEL = (By.XPATH, "//div[@class='options']/label[1]")
