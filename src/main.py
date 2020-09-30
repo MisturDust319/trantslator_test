@@ -55,6 +55,38 @@ def test_home_page(set_up_page):
     output_field = page.get_output_field()
     # check the output field's value
     assert output_field.text == "THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG"
+    
+    # open the options panel
+    page.toggle_advanced_options()
+
+    # change the spacing option to double space
+    page.choose_doublespace_setting()
+    page.click_translate_button()
+    # get the output field
+    output_field = page.get_output_field()
+    # check the output field's value
+    assert output_field.text == "THE  QUICK  BROWN  FOX  JUMPED  OVER  THE  LAZY  DOG"
+
+    # change the spacing option to monospace and antey option
+    # change the input text to something that will trigger the "ant" substitution
+    page.fill_input_field("yes we can")
+    page.choose_monospace_setting()
+    page.choose_antey_yes_setting()
+    page.click_translate_button()
+    # get the output field
+    output_field = page.get_output_field()
+    # check the output field's value
+    assert output_field.text == "YES WE CANT"
+
+    # change the spacing option to doublespace and antey option
+    # change the input text to something that will trigger the "ant" substitution
+    page.fill_input_field("yes we can")
+    page.choose_doublespace_setting()
+    page.click_translate_button()
+    # get the output field
+    output_field = page.get_output_field()
+    # check the output field's value
+    assert output_field.text == "YES  WE  CANT"
 
     # test the footer
     assert footer.check_for_hr1() is True, "hr 1 not found in footer"
