@@ -14,13 +14,6 @@ class BasePage(object):
         Get the page title
         """
         return self.driver.title
-    
-    def check_for_element(self, locator):
-        try:
-            self.driver.find_element(*locator)
-        except NoSuchElementException:
-            return False
-        return True
 
 class MainPage(BasePage):
     def toggle_advanced_options(self):
