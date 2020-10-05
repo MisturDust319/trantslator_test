@@ -223,6 +223,26 @@ class TestMainPage:
 #     assert footer.get_website_link() == "https://www.hermetikos.com/", "Website link in footer wrong"
 #     assert footer.check_for_website_svg() is True, "Website link SVG not found"
 
+class TestHelpPage:
+    """
+    Tests for the Help Page
+    """
+    @pytest.fixture(autouse=True, scope="class")
+    def driver(self, set_up_driver):
+        return set_up_driver(BASE_URL + "help/")
+
+
+    def test_title(self, driver):
+        assert driver.title == "TRANTSLATOR | HELP"
+
+
+    def test_header(self, driver):
+        _header_tests(driver)
+
+
+    def test_footer(self, driver):
+        _footer_tests(driver)
+
 
 # @pytest.mark.help
 # def test_help_page(set_up_page):
