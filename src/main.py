@@ -243,41 +243,25 @@ class TestHelpPage:
     def test_footer(self, driver):
         _footer_tests(driver)
 
+class TestAboutPage:
+    """
+    Tests for the About Page
+    """
+    @pytest.fixture(autouse=True, scope="class")
+    def driver(self, set_up_driver):
+        return set_up_driver(BASE_URL + "about/")
 
-# @pytest.mark.help
-# def test_help_page(set_up_page):
-#     # set up the driver, header, and footer
-#     driver, header, footer = set_up_page(BASE_URL + 'help/')
-#     # driver, header, footer = set_up_page("https://www.trantslator.com/help/")
-#     # pass it to the Base Page object
-#     # the help page doesn't warrant a unique test page object
-#     page = BasePage(driver)
 
-#     # test the page title is correct
-#     assert page.getPageTitle() == "TRANTSLATOR | HELP"
+    def test_title(self, driver):
+        assert driver.title == "TRANTSLATOR | ABOUT"
 
-#     # test the header
-#     assert header.check_for_header() is True, "Header not found"
-#     assert header.check_header_title() is True, "Header title incorrect"
-#     assert header.check_for_icon() is True, "Icon not found"
 
-#     # test the footer
-#     assert footer.check_for_hr1() is True, "hr 1 not found in footer"
-#     assert footer.get_pages_heading() == "PAGES", "PAGES heading in footer wrong"
-#     assert footer.get_home_link() == "https://www.trantslator.com/", "Home link in footer wrong"
-#     assert footer.get_help_link() == "https://www.trantslator.com/help/", "Help link in footer wrong"
-#     assert footer.get_about_link() == "https://www.trantslator.com/about/", "About link in footer wrong"
-    
-#     assert footer.check_for_hr2() is True, "hr 2 not found in footer"
-    
-#     assert footer.get_external_links_header() == "LINKS", "LINKS heading in footer wrong"
-#     assert footer.get_twitter_link() == "https://twitter.com/hermetikosmedia", "Twitter link in footer wrong"
-#     assert footer.check_for_twitter_svg() is True, "Twitter link SVG not found"
-#     assert footer.get_instagram_link() == "https://instagram.com/stan_the_freelancer?igshid=a2r2ytdwa2ys", "Instagram link in footer wrong"
-#     assert footer.check_for_instagram_svg() is True, "Instagram link SVG not found"
-#     assert footer.get_website_link() == "https://www.hermetikos.com/", "Website link in footer wrong"
-#     assert footer.check_for_website_svg() is True, "Website link SVG not found"
+    def test_header(self, driver):
+        _header_tests(driver)
 
+
+    def test_footer(self, driver):
+        _footer_tests(driver)
 
 # @pytest.mark.about
 # def test_about_page(set_up_page):
