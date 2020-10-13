@@ -29,3 +29,5 @@ ENV LC_ALL C.UTF-8
 ENV PYTHONUNBUFFERED=1
 
 COPY /src /src
+
+# ENTRYPOINT [ "pytest", "main.py" ]
