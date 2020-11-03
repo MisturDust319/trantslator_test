@@ -30,4 +30,4 @@ ENV PYTHONUNBUFFERED=1
 
 COPY /src /src
 
-# ENTRYPOINT [ "pytest", "main.py" ]
+ENTRYPOINT [ "pytest", "src/main.py" ]
