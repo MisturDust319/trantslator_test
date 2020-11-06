@@ -24,10 +24,15 @@ RUN FIREFOX_SETUP=firefox-setup.tar.bz2 && \
 
 RUN pip3 install selenium pytest
 
+# Add docker-compose-wait tool -------------------
+ENV WAIT_VERSION 2.7.2
+ADD https://github.com/ufoscout/docker-compose-wait/releases/download/$WAIT_VERSION/wait /wait
+RUN chmod +x /wait
+
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 ENV PYTHONUNBUFFERED=1
 
 COPY /src /src
 
-ENTRYPOINT [ "pytest", "src/main.py" ]
+# CMD [ "pytest", "src/main.py" ]

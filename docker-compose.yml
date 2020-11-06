@@ -36,8 +36,12 @@ services:
             - hub
             - chrome
             - firefox
+        command: sh -c "/wait && pytest src/main.py"
         environment:
             - HUB_PORT=4444
+            - WAIT_HOSTS=hub:4444
+            - WAIT_BEFORE_HOSTS=4
+            - WAIT_SLEEP_INTERVAL=3
         volumes:
             - type: bind
               source: ./src
