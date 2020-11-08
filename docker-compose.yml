@@ -36,7 +36,7 @@ services:
             - hub
             - chrome
             - firefox
-        command: sh -c "/wait && pytest src/main.py"
+        command: sh -c "/wait && pytest src/main.py >> src/log.txt"
         environment:
             - HUB_PORT=4444
             - WAIT_HOSTS=hub:4444
