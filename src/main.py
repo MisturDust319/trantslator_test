@@ -1,7 +1,7 @@
 import pytest
 
 from page import BasePage, MainPage
-from fixtures import set_up_driver_chrome, set_up_driver_firefox
+from fixtures import set_up_driver
 from template import HeaderTemplate, FooterTemplate
 
 # CONSTANTS
@@ -52,9 +52,9 @@ BASE_URL = "https://www.trantslator.com/"
 class TestMainPage:
     # @pytest.fixture(autouse=True, scope="class")
     # def driver(self, set_up_driver):
-    def test_driver(self, set_up_driver_firefox):
+    def test_driver(self, set_up_driver):
         # return set_up_driver(BASE_URL)
-        driver = set_up_driver_firefox
+        driver = set_up_driver
         driver.get(BASE_URL)
         assert driver.title == "TRANTSLATOR | HOME"
 

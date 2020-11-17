@@ -29,15 +29,15 @@ services:
         environment:
             - HUB_HOST=hub
             - HUB_PORT=4444
-    tests:
+    chrome-tests:
         image: selenium-tests
-        container_name: tests
+        container_name: chrome-tests
         depends_on:
             - hub
             - chrome
-            - firefox
-        command: sh -c "/wait && pytest src/main.py >> src/log.txt"
+        command: sh -c "/wait && pytest src/main.py >> logs/chrome.log"
         environment:
+            - BROWSER=chrome
             - HUB_PORT=4444
             - WAIT_HOSTS=hub:4444
             - WAIT_BEFORE_HOSTS=4
@@ -46,3 +46,27 @@ services:
             - type: bind
               source: ./src
               target: /src
+            - type: bind
+              source: ./logs
+              target: /logs
+    firefox-tests:
+        image: selenium-tests
+        container_name: firefox-tests
+        depends_on:
+            - hub
+            - firefox
+        command: sh -c "/wait && pytest src/main.py >> logs/firefox.log"
+        environment:
+            - BROWSER=firefox
+            - HUB_PORT=4444
+            - WAIT_HOSTS=hub:4444
+            - WAIT_BEFORE_HOSTS=4
+            - WAIT_SLEEP_INTERVAL=3
+        volumes:
+            - type: bind
+              source: ./src
+              target: /src
+            - type: bind
+              source: ./logs
+              target: /logs
+            
